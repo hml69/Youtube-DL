@@ -21,12 +21,10 @@ def download_video():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
-# Create the main window
 root = tk.Tk()
 root.title("Tải video Youtube nhanh")
 root.geometry("400x250")
 
-# Create and pack widgets
 main_frame = tk.Frame(root, bg="#f0f0f0")
 main_frame.place(relx=0.5, rely=0.5, anchor="center")
 
@@ -43,18 +41,16 @@ file_type_label = ttk.Label(main_frame, text="Chọn định dạng file:", styl
 file_type_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
 
 file_type_var = tk.StringVar()
-file_type_var.set("MP4")  # Default file type
+file_type_var.set("MP4")
 file_type_menu = ttk.Combobox(main_frame, textvariable=file_type_var, values=["MP4", "MP3"], style='TCombobox', state='readonly')
 file_type_menu.grid(row=2, column=1, padx=10, pady=5)
 
 download_button = ttk.Button(main_frame, text="Tải xuống", command=download_video, style='TButton')
 download_button.grid(row=3, column=0, columnspan=2, pady=10)
 
-# Create styles for ttk widgets
 style = ttk.Style()
 style.configure('TLabel', background="#f0f0f0")
 style.configure('TEntry', background="white")
 style.configure('TCombobox', background="white")
 
-# Run the application
 root.mainloop()
